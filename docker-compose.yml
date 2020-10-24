@@ -1,9 +1,26 @@
 version: 3
 services:
     frontend:
-
+        build: 
+            dockerfile: Dockerfile.dev
+            context: ./frontend
+        volumes:
+            - /app/node_modules
+            - ./frontend:/app
     backend:
-
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./backend
+        container_name: app_backend
+        volumes:
+            - /app/node_modules
+            - ./backend:/app
     nginx:
+        restart: always
+        build:
+            dockerfile: Dockerfile
+            context: ./nginx
+            ports:
+                - "3000:80"
         
     mysql:
