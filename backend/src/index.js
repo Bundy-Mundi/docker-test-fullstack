@@ -1,5 +1,5 @@
-const express = require("expresss");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 const db = require('./db');
 const app = express();
 const PORT = 5000;
@@ -19,7 +19,7 @@ db.pool.query(`CREATE TABLE lists (
 app.get("/api/values", function(req, res){
     db.pool.query(`SELECT * FROM lists;`, (err, results, fields) => {
         if(err) return res.status(500).send(err)
-        else return res.json.status(200).send(results)
+        else return res.status(200).send(results)
     });
 });
 app.post("/api/values", function(req, res){
@@ -30,4 +30,4 @@ app.post("/api/values", function(req, res){
     })
 });
 
-app.listen(()=>console.log(`Server Listening On: ${PORT}`));
+app.listen(PORT, ()=>console.log(`Server Listening On: ${PORT}`));
