@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/init.js",
+    "start": "node src/index.js",
     "test":"",
-    "dev":"nodemon --exec src/init.js"
+    "dev":"nodemon src/index.js"
   },
   "repository": {
     "type": "git",
